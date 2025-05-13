@@ -1,0 +1,58 @@
+{% load static %}
+<section id="testimonials" class="py-16 sm:py-24 bg-background fade-in">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 md:mb-16">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-accent mb-4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg> <!-- ShieldCheck icon -->
+      <h2 class="text-3xl sm:text-4xl font-bold text-primary mb-3">
+        Trusted by Traders Like You
+      </h2>
+      <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+        Real feedback from individuals and professionals benefiting from ChartMind AI.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% for testimonial in testimonials %}
+      <div class="shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col bg-card text-card-foreground border border-transparent hover:border-accent/50 rounded-xl overflow-hidden transform hover:-translate-y-1">
+        <div class="p-6 bg-secondary/30">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent mb-4 transform -scale-x-100"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.75-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c.25.25.25 1 1.25 1s1-1 1-1V13c0-1-1-2-2-2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path></svg> <!-- Quote icon -->
+          <p class="text-foreground text-lg leading-relaxed italic">"{{ testimonial.quote }}"</p>
+        </div>
+        <div class="p-6 mt-auto flex flex-col items-start">
+          <div class="flex items-center mb-3">
+            {% for i in "12345" %}
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="
+                  {% if forloop.counter <= testimonial.rating %}
+                    text-yellow-400 fill-yellow-400
+                  {% else %}
+                    text-muted-foreground/30 fill-muted-foreground/30
+                  {% endif %}
+                ">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg> <!-- Star icon -->
+            {% endfor %}
+          </div>
+          <div class="flex items-center">
+            <div class="relative flex h-14 w-14 shrink-0 overflow-hidden rounded-full mr-4 border-2 border-accent/50 p-0.5">
+                <img 
+                    src="{{ testimonial.avatar_url }}" 
+                    alt="{{ testimonial.author }}" 
+                    width="56" 
+                    height="56" 
+                    class="rounded-full object-cover aspect-square h-full w-full"
+                    data-ai-hint="{{ testimonial.data_ai_hint }}"
+                    loading="lazy"
+                />
+                <!-- AvatarFallback can be simulated with initials if image fails, or omitted for simplicity in plain HTML/CSS -->
+            </div>
+            <div>
+              <p class="font-semibold text-lg text-primary">{{ testimonial.author }}</p>
+              <p class="text-sm text-muted-foreground">{{ testimonial.role }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

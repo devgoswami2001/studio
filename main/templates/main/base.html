@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block page_title %}ChartMind AI Showcase{% endblock %}</title>
+    <meta name="description" content="{% block page_description %}Insightful intraday market move predictions with ChartMind AI.{% endblock %}">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/globals.css' %}">
+    <!-- If using Tailwind CLI, the output might be different, e.g., tailwind_output.css -->
+    <!-- <link rel="stylesheet" href="{% static 'css/tailwind_output.css' %}"> -->
+
+    <style>
+        body {
+            font-family: 'Inter', Arial, Helvetica, sans-serif; /* Matches Next.js Inter font setup */
+        }
+        /* Ensure hero section content is above the 3D particle system canvas */
+        #scene-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Behind hero content */
+        }
+    </style>
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="font-sans antialiased bg-background text-foreground">
+    <canvas id="cursor-trail-canvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-[9999]"></canvas>
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Toaster placeholder - A Django messages equivalent or custom JS toaster would be needed -->
+    <!-- For now, we'll omit direct Toaster component from ShadCN -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="{% static 'js/cursor_trail.js' %}"></script>
+    <script src="{% static 'js/scroll_fade_in.js' %}"></script>
+    <script src="{% static 'js/three_particle_system.js' %}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

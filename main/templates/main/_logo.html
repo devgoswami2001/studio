@@ -1,0 +1,35 @@
+
+{% comment %}
+  Pass parameters like:
+  size: 'sm', 'md' (default), 'lg'
+  icon_class_extra: additional classes for icon
+  text_class_extra: additional classes for text
+  container_class_extra: additional classes for container
+{% endcomment %}
+{% with size=size|default:"md" %}
+<div class="flex items-center gap-2 {{ container_class_extra }}">
+  <svg xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      stroke-width="2" 
+      stroke-linecap="round" 
+      stroke-linejoin="round" 
+      class="
+        text-primary 
+        {% if size == 'sm' %}h-6 w-6{% elif size == 'lg' %}h-10 w-10{% else %}h-8 w-8{% endif %}
+        {{ icon_class_extra }}
+      ">
+      <path d="M12 2a10 10 0 0 0-2 19.5v-1.5a8.5 8.5 0 0 1 1.5-1.2A3 3 0 0 0 12 18a3 3 0 0 0 .5-5.9A3 3 0 0 0 12 6a3 3 0 0 0-5.5 1.8"/>
+      <path d="M12 2a10 10 0 0 1 9.2 6.2"/>
+      <path d="M5.5 8A2.5 2.5 0 0 0 3 10.5v0A2.5 2.5 0 0 0 5.5 13v0A2.5 2.5 0 0 0 8 10.5v0A2.5 2.5 0 0 0 5.5 8Z"/>
+      <path d="M18.5 8A2.5 2.5 0 0 0 16 10.5v0A2.5 2.5 0 0 0 18.5 13v0A2.5 2.5 0 0 0 21 10.5v0A2.5 2.5 0 0 0 18.5 8Z"/>
+  </svg>
+  <span class="font-bold text-foreground 
+        {% if size == 'sm' %}text-xl{% elif size == 'lg' %}text-3xl{% else %}text-2xl{% endif %}
+        {{ text_class_extra }}
+    ">
+    ChartMind AI
+  </span>
+</div>
+{% endwith %}

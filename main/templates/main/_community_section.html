@@ -1,0 +1,61 @@
+{% load static %}
+<section id="community" class="py-16 sm:py-24 bg-background fade-in">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-accent mb-4"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> <!-- Users icon -->
+      <h2 class="text-3xl sm:text-4xl font-bold text-primary mb-2">
+        Join Our Trading Community
+      </h2>
+      <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+        Get real-time signals and insights from ChartMind AI directly on Telegram.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      {% with channels_data='[{"name": "Nifty 50 Signals", "description": "Stay ahead in the Indian stock market with our AI-powered Nifty 50 intraday signals.", "link": "https://t.me/dalalstreetinsider", "icon_type": "trending_up", "cta": "Join Nifty 50 Channel"}, {"name": "Crypto Signals", "description": "Navigate the volatile crypto markets with timely AI-driven trading signals for various cryptocurrencies.", "link": "https://t.me/pipvitae", "icon_type": "bitcoin", "cta": "Join Crypto Channel"}]'|json_script:"channels_data_json" %}
+      {% endwith %}
+      
+      <div id="community-channels-container">
+          <!-- Channels will be rendered by JS -->
+      </div>
+
+      <script>
+          document.addEventListener('DOMContentLoaded', function() {
+              const channelsDataElement = document.getElementById('channels_data_json');
+              if (channelsDataElement) {
+                  const channels = JSON.parse(channelsDataElement.textContent);
+                  const container = document.getElementById('community-channels-container');
+                  container.className = 'grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto'; // Ensure container has grid styles
+                  
+                  channels.forEach(channel => {
+                      const card = document.createElement('div');
+                      card.className = 'shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col bg-card text-card-foreground rounded-lg overflow-hidden';
+                      
+                      let iconSvg = '';
+                      if (channel.icon_type === 'trending_up') {
+                          iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><path d="M2.5 2.5a3.5 3.5 0 0 1 5 0L12 7l4.5-4.5a3.5 3.5 0 0 1 5 0l0 0a3.5 3.5 0 0 1 0 5L17 12l4.5 4.5a3.5 3.5 0 0 1-5 5l0 0a3.5 3.5 0 0 1-5 0L12 17l-4.5 4.5a3.5 3.5 0 0 1-5-5l0 0a3.5 3.5 0 0 1 0-5L7 12 2.5 7.5a3.5 3.5 0 0 1 0-5z"/></svg>`;
+                      } else if (channel.icon_type === 'bitcoin') {
+                          iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><path d="M10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33M10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33M10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33M10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33M10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33M10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33M10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33M10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33C10.33 10.33 10.33 10.33 10.33 10.33M12 12h.01M10.5 15H13.5C14.3284 15 15 14.3284 15 13.5V10.5C15 9.67157 14.3284 9 13.5 9H10.5C9.67157 9 9 9.67157 9 10.5V13.5C9 14.3284 9.67157 15 10.5 15Z"/></svg>`;
+                      }
+                      
+                      card.innerHTML = `
+                          <div class="items-center text-center p-6">
+                              ${iconSvg}
+                              <h3 class="text-2xl font-semibold text-primary mt-4">${channel.name}</h3>
+                          </div>
+                          <div class="flex flex-col flex-grow items-center text-center p-6 pt-0">
+                              <p class="text-muted-foreground mb-6 flex-grow">${channel.description}</p>
+                              <a href="${channel.link}" target="_blank" rel="noopener noreferrer" 
+                                 class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 px-8 bg-accent hover:bg-accent/90 text-accent-foreground w-full mt-auto">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> <!-- Send icon -->
+                                  ${channel.cta}
+                              </a>
+                          </div>
+                      `;
+                      container.appendChild(card);
+                  });
+              }
+          });
+      </script>
+    </div>
+  </div>
+</section>

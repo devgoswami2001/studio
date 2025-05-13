@@ -1,0 +1,59 @@
+{% load static %}
+<section id="blog" class="py-16 sm:py-24 bg-secondary fade-in">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-accent mb-4"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg> <!-- BookOpen icon -->
+      <h2 class="text-3xl sm:text-4xl font-bold text-primary mb-2">
+        Latest Insights & Articles
+      </h2>
+      <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+        Stay informed with our expert analysis and updates on AI in trading.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% for post in blog_posts_preview %}
+      <article>
+        <div class="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full bg-card text-card-foreground rounded-lg overflow-hidden">
+          <a href="{% url 'blog_post_detail' slug=post.slug %}" class="block">
+            <img
+              src="{{ post.image_url | default:'https://picsum.photos/600/400' }}"
+              alt="{{ post.image_alt }}"
+              width="600"
+              height="400"
+              class="rounded-t-lg object-cover aspect-[3/2]"
+              data-ai-hint="{{ post.data_ai_hint }}"
+              loading="lazy"
+            />
+          </a>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-primary mb-1">
+              <a href="{% url 'blog_post_detail' slug=post.slug %}" class="hover:text-accent transition-colors">
+                {{ post.title }}
+              </a>
+            </h3>
+            <time datetime="{{ post.date }}" class="text-sm text-muted-foreground">
+              {{ post.date }} {# Consider formatting date with Django template filter if needed #}
+            </time>
+          </div>
+          <div class="p-6 pt-0 flex-grow">
+            <p class="text-foreground leading-relaxed">
+              {{ post.excerpt }}
+            </p>
+          </div>
+          <div class="p-6 pt-0 mt-auto">
+            <a href="{% url 'blog_post_detail' slug=post.slug %}" class="inline-flex items-center text-accent p-0 h-auto hover:underline">
+                Read More 
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg> <!-- ArrowRight icon -->
+            </a>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    <div class="text-center mt-12">
+      <a href="{% url 'blog_list' %}" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 px-8 bg-primary hover:bg-primary/90 text-primary-foreground">
+        View All Posts
+      </a>
+    </div>
+  </div>
+</section>
