@@ -40,33 +40,33 @@ const ParticleBackground = () => {
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 3 + 1; // Original size: Math.random() * 3 + 1
-        this.speedX = (Math.random() * 0.5 - 0.25) * 0.5; // Slower speed: Math.random() * 0.5 - 0.25
-        this.speedY = (Math.random() * 0.5 - 0.25) * 0.5; // Slower speed
-        // User's original colors:
-        this.color = Math.random() > 0.5 ? 'rgba(59, 130, 246, 0.3)' : 'rgba(147, 51, 234, 0.3)'; // Reduced alpha for subtlety
+        this.size = Math.random() * 3 + 1; 
+        this.speedX = (Math.random() * 0.5 - 0.25) * 0.5; 
+        this.speedY = (Math.random() * 0.5 - 0.25) * 0.5; 
+        // Updated colors to align with theme: Primary-like (Deep Blue) and Accent-like (Teal)
+        this.color = Math.random() > 0.5 ? 'rgba(26, 35, 126, 0.3)' : 'rgba(0, 188, 212, 0.3)'; 
       }
 
       update() {
         this.x += this.speedX;
         this.y += this.speedY;
-        if (this.size > 0.1) this.size -= 0.005; // Slower shrink rate
+        if (this.size > 0.1) this.size -= 0.005; 
 
         // Boundary checks - bounce (considering particle size)
         if (this.x - this.size < 0 && this.speedX < 0) {
             this.speedX *= -1;
-            this.x = this.size; // Prevent sticking
+            this.x = this.size; 
         } else if (this.x + this.size > canvas.width && this.speedX > 0) {
             this.speedX *= -1;
-            this.x = canvas.width - this.size; // Prevent sticking
+            this.x = canvas.width - this.size; 
         }
 
         if (this.y - this.size < 0 && this.speedY < 0) {
             this.speedY *= -1;
-            this.y = this.size; // Prevent sticking
+            this.y = this.size; 
         } else if (this.y + this.size > canvas.height && this.speedY > 0) {
             this.speedY *= -1;
-            this.y = canvas.height - this.size; // Prevent sticking
+            this.y = canvas.height - this.size; 
         }
       }
 
@@ -80,7 +80,7 @@ const ParticleBackground = () => {
     }
 
     function initParticles() {
-      particlesArray.length = 0; // Clear existing particles
+      particlesArray.length = 0; 
       for (let i = 0; i < numberOfParticles; i++) {
         particlesArray.push(new Particle());
       }
@@ -92,9 +92,8 @@ const ParticleBackground = () => {
       for (let i = 0; i < particlesArray.length; i++) {
         particlesArray[i].update();
         particlesArray[i].draw();
-        if (particlesArray[i].size <= 0.1) { // Original: 0.2
+        if (particlesArray[i].size <= 0.1) { 
           particlesArray.splice(i, 1);
-          // Add a new particle to maintain count if needed
           if (particlesArray.length < numberOfParticles) {
              particlesArray.push(new Particle());
           }

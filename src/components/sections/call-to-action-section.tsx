@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PlayCircle, Mail, Info } from "lucide-react";
@@ -8,11 +9,14 @@ export default function CallToActionSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <PlayCircle className="mx-auto h-12 w-12 text-accent mb-4" />
-          <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-2">
+          <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-3">
             Ready to Elevate Your Trading?
           </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Join ChartMind AI today and gain an unfair advantage in the market.
+          <p className="text-lg text-accent max-w-2xl mx-auto mb-3 font-medium">
+            Leverage Cutting-Edge Artificial Intelligence for Smarter Financial Decisions.
+          </p>
+          <p className="text-md text-muted-foreground max-w-xl mx-auto">
+            Discover how ChartMind AI's predictive power can give you a distinct market advantage.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
