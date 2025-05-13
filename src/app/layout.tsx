@@ -1,7 +1,10 @@
+
 import type {Metadata} from 'next';
 import { Inter } from 'next/font/google'; // Using Inter as a clean, modern font. Geist is also good.
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
+import CursorTrail from '@/components/effects/cursor-trail';
+import ScrollFadeIn from '@/components/effects/scroll-fade-in';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -21,6 +24,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="font-sans antialiased">
+        <CursorTrail />
+        <ScrollFadeIn />
         {children}
         <Toaster />
       </body>

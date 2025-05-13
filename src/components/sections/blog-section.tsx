@@ -37,7 +37,7 @@ const blogPosts = [
 
 export default function BlogSection() {
   return (
-    <section id="blog" className="py-16 sm:py-24 bg-secondary">
+    <section id="blog" className="py-16 sm:py-24 bg-secondary fade-in">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <BookOpen className="mx-auto h-12 w-12 text-accent mb-4" />

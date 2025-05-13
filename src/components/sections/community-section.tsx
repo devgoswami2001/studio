@@ -23,7 +23,7 @@ const channels = [
 
 export default function CommunitySection() {
   return (
-    <section id="community" className="py-16 sm:py-24 bg-background">
+    <section id="community" className="py-16 sm:py-24 bg-background fade-in">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <Users className="mx-auto h-12 w-12 text-accent mb-4" />
