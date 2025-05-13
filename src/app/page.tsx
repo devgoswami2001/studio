@@ -3,9 +3,9 @@ import HeroSection from '@/components/sections/hero-section';
 import AiExplanationSection from '@/components/sections/ai-explanation-section';
 import TestimonialsSection from '@/components/sections/testimonials-section';
 import CommunitySection from '@/components/sections/community-section';
+import BlogSection from '@/components/sections/blog-section';
 import CallToActionSection from '@/components/sections/call-to-action-section';
-import FooterComponent from '@/components/layout/footer-component'; // Renamed to avoid conflict
-import { Separator } from '@/components/ui/separator';
+import FooterComponent from '@/components/layout/footer-component'; 
 
 export default function Home() {
   return (
@@ -18,9 +18,11 @@ export default function Home() {
         <AiExplanationSection />
         <TestimonialsSection />
         <CommunitySection />
+        <BlogSection />
         <CallToActionSection />
       </main>
       <FooterComponent />
     </div>
   );
 }
+

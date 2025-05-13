@@ -1,6 +1,6 @@
 
 import Logo from '@/components/logo';
-import { Mail, Phone, FileText, Copyright, Send, Users, TrendingUp, Bitcoin } from 'lucide-react';
+import { Mail, Phone, FileText, Copyright, Send, Users, TrendingUp, Bitcoin, BookOpen } from 'lucide-react';
 import Link from 'next/link';
 
 export default function FooterComponent() {
@@ -26,6 +26,7 @@ export default function FooterComponent() {
               <li><Link href="/#hero" className="hover:text-accent transition-colors opacity-80 hover:opacity-100">Home</Link></li>
               <li><Link href="/#ai-explanation" className="hover:text-accent transition-colors opacity-80 hover:opacity-100">How it Works</Link></li>
               <li><Link href="/#testimonials" className="hover:text-accent transition-colors opacity-80 hover:opacity-100">Testimonials</Link></li>
+               <li><Link href="/#blog" className="hover:text-accent transition-colors opacity-80 hover:opacity-100">Blog</Link></li>
               <li><Link href="/#community" className="hover:text-accent transition-colors opacity-80 hover:opacity-100">Community</Link></li>
               <li><Link href="/#cta" className="hover:text-accent transition-colors opacity-80 hover:opacity-100">Get Started</Link></li>
             </ul>
@@ -57,6 +58,10 @@ export default function FooterComponent() {
               <li className="flex items-center">
                 <Phone className="h-5 w-5 mr-2 text-accent" />
                 <span className="opacity-80">+1 (555) 123-4567</span>
+              </li>
+               <li className="flex items-center">
+                <BookOpen className="h-5 w-5 mr-2 text-accent" />
+                <Link href="/blog" className="hover:text-accent transition-colors opacity-80 hover:opacity-100">Our Blog</Link>
               </li>
             </ul>
           </div>
