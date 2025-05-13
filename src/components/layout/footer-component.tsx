@@ -1,5 +1,6 @@
+
 import Logo from '@/components/logo';
-import { Mail, Phone, FileText, Copyright } from 'lucide-react';
+import { Mail, Phone, FileText, Copyright, Send, Users, TrendingUp, Bitcoin } from 'lucide-react';
 import Link from 'next/link';
 
 export default function FooterComponent() {
@@ -8,7 +9,7 @@ export default function FooterComponent() {
   return (
     <footer className="bg-primary text-primary-foreground py-12 sm:py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
             <Logo 
               iconClassName="text-accent" 
@@ -21,23 +22,41 @@ export default function FooterComponent() {
           </div>
           <div>
             <h3 className="text-lg font-semibold text-accent mb-3">Quick Links</h3>
-            <ul className="space-y-2">
-              <li><Link href="#hero" className="hover:text-accent transition-colors">Home</Link></li>
-              <li><Link href="#ai-explanation" className="hover:text-accent transition-colors">How it Works</Link></li>
-              <li><Link href="#testimonials" className="hover:text-accent transition-colors">Testimonials</Link></li>
-              <li><Link href="#cta" className="hover:text-accent transition-colors">Get Started</Link></li>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/#hero" className="hover:text-accent transition-colors opacity-80 hover:opacity-100">Home</Link></li>
+              <li><Link href="/#ai-explanation" className="hover:text-accent transition-colors opacity-80 hover:opacity-100">How it Works</Link></li>
+              <li><Link href="/#testimonials" className="hover:text-accent transition-colors opacity-80 hover:opacity-100">Testimonials</Link></li>
+              <li><Link href="/#community" className="hover:text-accent transition-colors opacity-80 hover:opacity-100">Community</Link></li>
+              <li><Link href="/#cta" className="hover:text-accent transition-colors opacity-80 hover:opacity-100">Get Started</Link></li>
+            </ul>
+          </div>
+           <div>
+            <h3 className="text-lg font-semibold text-accent mb-3">Community Channels</h3>
+            <ul className="space-y-2 text-sm">
+              <li className="flex items-center">
+                <TrendingUp className="h-5 w-5 mr-2 text-accent" />
+                <Link href="https://t.me/dalalstreetinsider" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors opacity-80 hover:opacity-100">
+                  Nifty 50 Signals
+                </Link>
+              </li>
+              <li className="flex items-center">
+                <Bitcoin className="h-5 w-5 mr-2 text-accent" />
+                <Link href="https://t.me/pipvitae" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors opacity-80 hover:opacity-100">
+                  Crypto Signals
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
             <h3 className="text-lg font-semibold text-accent mb-3">Contact Us</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 text-sm">
               <li className="flex items-center">
                 <Mail className="h-5 w-5 mr-2 text-accent" />
-                <a href="mailto:info@chartmind.ai" className="hover:text-accent transition-colors">info@chartmind.ai</a>
+                <a href="mailto:info@chartmind.ai" className="hover:text-accent transition-colors opacity-80 hover:opacity-100">info@chartmind.ai</a>
               </li>
               <li className="flex items-center">
                 <Phone className="h-5 w-5 mr-2 text-accent" />
-                <span>+1 (555) 123-4567</span>
+                <span className="opacity-80">+1 (555) 123-4567</span>
               </li>
             </ul>
           </div>
